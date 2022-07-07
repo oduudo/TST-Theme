@@ -1,0 +1,274 @@
+udostest {
+--theme-colors-frame: hsl(240, 5%, 5%)​;
+--theme-colors-icons: rgb(249, 249, 250, 0.7)​;
+--theme-colors-ntp_background: #2A2A2E​;
+--theme-colors-ntp_text: rgb(249, 249, 250)​;
+--theme-colors-popup: #4a4a4f​;
+--theme-colors-popup_border: #27272b​;
+--theme-colors-popup_text: rgb(249, 249, 250)​;
+--theme-colors-sidebar: #38383D​;
+--theme-colors-sidebar_border: rgba(255, 255, 255, 0.1)​;
+--theme-colors-sidebar_text: rgb(249, 249, 250)​;
+--theme-colors-tab_background_text: rgb(249, 249, 250)​;
+--theme-colors-tab_line: #0a84ff​;
+--theme-colors-toolbar: hsl(240, 1%, 20%)​;
+--theme-colors-toolbar_bottom_separator: hsl(240, 5%, 5%)​;
+--theme-colors-toolbar_field: rgb(71, 71, 73)​;
+--theme-colors-toolbar_field_border: rgba(249, 249, 250, 0.2)​;
+--theme-colors-toolbar_field_separator: #5F6670​;
+--theme-colors-toolbar_field_text: rgb(249, 249, 250)​;
+/* Opacity --xx-x-x-30 per 10% */
+}
+
+:root {
+/* Background und Newtab und Lesezeichen */
+  --colBG:            #281f1a; /* 281f1a tab border bottom */
+  --colBG2:           #ffff00;
+
+  --colNewTabBG:      var(--colBG);
+  --colNewTab:        #ffffff;
+/* TabText  */
+  --colTabTextdark:   #111111;
+  --colTabTextlight:  #ffffff;
+
+/* Tabs */
+  --colTabBG:         #514350; /* 514350 tab background */
+  --colTab:           #111111;
+
+  --colTabActBG:      #dbdfeb; /* ecff6b tab active background */
+  --colTabAct:        #0000ff;
+  --colTabActTwisty:  #008000; /* tab active tristy */
+  --colTabLastAct:    #997719;
+
+  --colTabHovBG:      #193b99; /* 6affda tab hover */
+
+  --colTabDiscBG:     #514350;
+  --colTabDisc:       #ffffff; /* b4b4b4 tab discarded */
+
+  --colTabUnread:     #ff0000;
+
+  --colTabLabel:      #ffffff;
+
+  --colCount:         #5ceaff; /* 5ceaff tab counter */
+
+
+/* Group Tabs */
+  --colGroupTabBG:    #a54d2a3f; /* B5C1E3 */
+  --colGroupTab:      var(--colTabTextlight);
+
+  --tab-size: 19px;
+  --font-size: 11px;
+  background-color: var(--colBG);
+}
+
+:root.sidebar {
+  background-color: var(--colBG) !important; /* 281f1a */
+}
+/* , #tabbar, #subpanel-container, #background */
+#tabbar-container {
+  background-color: var(--colBG) !important;
+}
+
+/*
+:root.simulate-svg-context-fill .closebox::after {
+  background: white;
+}
+
+:root.simulate-svg-context-fill .tab.active .closebox::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .closebox::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab.active .sound-button::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .sound-button::after {
+  background: black;
+}
+*/
+
+.tab {
+  background-color: var(--colTabBG);
+  color: var(--colTab);
+  height: var(--tab-size);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--colBG);
+  border-radius: 20px;
+}
+
+.label {
+  font-size: var(--font-size);
+}
+
+.tab .label {
+  color: var(--colTabLabel);
+}
+
+.tab.active .label {
+  /*  font-size: 14px; */
+  font-weight: bold;
+  color: var(--colTab);
+}
+
+.tab .counter {
+  color: var(--colCount);
+}
+
+.tab.active .twisty
+{
+  color: var(--colTabActTwisty);
+}
+
+.tab.active {
+  /*  height: 30px !important; */
+  color: var(--colTabAct);
+  background-color: var(--colTabActBG); /* #193B99 */
+}
+
+.tab.active:hover {
+  background-color: var(--colTabActBG);
+}
+
+.tab:hover .label {
+  color: var(--colTab);
+}
+
+.tab:hover, .tab:not(.active):hover {
+  color: var(--colTab);
+  background-color: var(--colTabHovBG);
+  opacity: 1;
+}
+
+.tab.unread .label {
+  color: var(--colTabUnread) !important;
+  font-style: italic !important;
+}
+
+.tab.discarded {
+  color: var(--colTabDisc);
+  background-color: var(--colTabDiscBG);
+  border-top: none;
+  border-bottom: 1px solid black;
+}
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
+
+.tab.last-active {
+  background-color: var(--colTabLastAct) !important;
+  }
+
+/* --Change attributes of group tabs */
+.tab.group-tab {
+  background-color: var(--colGroupTabBG);
+}
+.tab.group-tab .label {
+color: var(--colGroupTab);
+font-weight: bold;
+}
+
+/* ab hier alt */
+
+
+/* Color Tabs as Container */
+:root.sidebar .contextual-identity-marker {
+  margin: 0 !important;
+  position: absolute !important;
+  pointer-events: none;Full Auto-show/hide Theme
+  z-index: 0;
+
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+
+  width: unset !important;
+  height: unset !important;
+
+  opacity: 0.5;
+}
+:root.sidebar tab-label {
+  z-index: 1000;
+}
+
+:root.left #tabbar {
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+/* counting */
+
+#tabbar {
+  counter-reset: vtabs atabs tabs;
+  /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+}
+.tab:not(.collapsed):not(.discarded) {
+  counter-increment: vtabs atabs tabs;
+}
+.tab:not(.collapsed) {
+  counter-increment: vtabs tabs;
+}
+.tab:not(.discarded) {
+  counter-increment: atabs tabs;
+}
+.tab {
+  counter-increment: tabs;
+}
+
+/* counter in newtab */
+.newtab-button::before {
+  background-color: var(--colNewTab) !important;
+  }
+
+.newtab-button::after {
+  content: var(--tab-count-text);
+  pointer-events: none;
+
+  position: absolute;
+  left: 2em;
+
+  /* TST 2.4.0 - Fix for Issue #1664 */
+  /*background: transparent !important;
+  mask: none !important;
+  */
+}
+.newtab-button {
+  --tab-count-text: counter(atabs) "/" counter(tabs) " tabs";
+  color: var(--colNewTab);
+}
+
+/* newtab at top 1 */
+
+.newtab-button-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: var(--colBG) !important;
+}
+#tabbar {
+  top: 20px !important;
+}
+.tab.pinned {
+  margin-top: 20px;
+}
+
+/* newtab at top 2 */
+
+#all-tabs { order: 1000; }
+
+/* , #subpanel-toggler::before */
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before {
+  color: var(--colNewTab) !important;
+}
+
+
+/*   */

@@ -1,0 +1,399 @@
+/* ToDos
+closebox
+*/
+
+/* Color and Size definitions */
+:root {
+  /* allgemein */
+  --tab-size: 21px;
+  --font-size: 12px;
+  --tab-text:         #F9F9FA; /* --theme-colors-ntp_text */
+  --colTabTextlight:  #F9F9FA; /* --theme-colors-ntp_text */
+  --colTabTextdark:   #111111;
+
+  /* Background und Newtab und Lesezeichen */
+  --colBG:            #281F1A; /* 281f1a tab border bottom */
+  --colBG2:           #FFFF00;
+
+  --colMenuBG:        #27211F;
+  --colMenu:          #F9F9FA; /* --theme-colors-ntp_text */
+
+  /* Tabs */
+  --colTabBG:         rgb(64, 42, 33);
+  --colTabBGtr:       rgba(64, 42, 33, 0);
+  --colTab:           #111111;
+
+  --colTabActBG:      #DBDFEB; /* #193B99 */
+  --colTabAct:        #0000FF;
+  --colTabActTwisty:  #008000;
+  --colTabLastActBG:  #997719;
+  --colTabLastAct:    #997719;
+
+  --colTabHovBG:      #193B99;
+  --colTabHov:        #FF0000;
+
+  --colTabDiscBG:     #402A21; /* tab discarded */
+  --colTabDisc:       #cccccf;
+
+  --colTabUnreadBG:   #FF0000;
+  --colTabUnread:     #FF0000;
+
+  --colTabLabel:      #F9F9FA;
+
+  --colCount:         #5CEAFF; /* tab counter */
+
+  /* Group Tabs */
+  --colGroupTabBG:    rgb(64, 42, 33);
+  --colGroupTabBGtr:  rgba(64, 42, 33, 0);
+  --colGroupTab:      #F9F9FA; /* --theme-colors-ntp_text */
+  --colCont1:         var(--colg2);
+  --colCont2:         var(--colgr);
+  --colCont3:         var(--colb1);
+  --colCont4:         var(--colm1);
+  --colCont5:         var(--coly1);
+  --colCont6:         var(--colg2);
+  --colCont7:         var(--colo1);
+  --colCont8:         var(--colg2);
+  --colCont9:         var(--colm2);
+  --colCont0:         black;
+  --colContstd:       darkslategrey;
+
+  --colb1:            #38ADFF;
+  --colg1:            #00C79A;
+  --colg2:            #51CD00;
+  --coly1:            #FFCB00;
+  --colo1:            #FF9F00;
+  --colo2:            #FF623D;
+  --colm1:            #FF4BDA;
+  --colm2:            #AF51F5;
+  --colgr:            grey;
+  --colbl:            black;
+
+
+}
+
+/* background-color: var(--colBG); */
+
+/* Sonderzeichen */
+/*
+:root.simulate-svg-context-fill .closebox::after {
+
+}
+
+:root.simulate-svg-context-fill .tab.active .closebox::after {
+
+}
+
+:root.simulate-svg-context-fill .tab:hover .closebox::after {
+  b
+}
+
+:root.simulate-svg-context-fill .tab.active .sound-button::after {
+
+}
+
+:root.simulate-svg-context-fill .tab:hover .sound-button::after {
+
+}
+
+:root.simulate-svg-context-fill tab-item:not(.collapsed).tst-lock-tree-collapsed-locked-collapsed tab-twisty::before {
+
+}
+
+:root.simulate-svg-context-fill tab-item.group-tab .favicon-builtin::before {
+  opacity: 75%;
+}
+:root.simulate-svg-context-fill tab-item .favicon-builtin::before {
+  opacity: 75%;
+}
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before, #subpanel-toggler::before {
+
+}
+*/
+
+/* Background, Container und Menues */
+/* , #tabbar, #subpanel-container, #background */
+:root.sidebar {
+  background-color: var(--colBG) !important;
+}
+#tabbar-container {
+  background-color: var(--colBG) !important;
+  bottom: 6px !important;
+}
+/* , #subpanel-toggler::before */
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before {
+  color: var(--colMenu) !important;
+}
+.newtab-button::before {
+  background-color: var(--colMenu) !important;
+}
+#subpanel-container {
+  background-color: var(--colMenuBG);
+  margin: 2px;
+}
+
+#subpanel-selector-anchor span.icon {
+  visibility: collapse;
+}
+#subpanel-selector-anchor span.label {
+  margin-left: -20px;
+}
+
+/* newtab at top 1 */
+.newtab-button-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  margin: 2px;
+  background-color: var(--colMenuBG) !important;
+}
+#tabbar {
+  top: 22px !important;
+}
+.tab.pinned {
+  margin-top: 22px !important;
+}
+
+/* Tab definition */
+.tab {
+  background-color: var(--colTabBG);
+  color: var(--colTab);
+  height: var(--tab-size);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--colBG);
+  border-radius: 20px;
+}
+
+.label {
+  font-size: var(--font-size);
+  margin-left: 5px;
+  opacity: 90%;
+}
+
+.tab .label {
+  color: var(--colTabLabel);
+}
+
+.tab .counter {
+  color: var(--colCount);
+}
+
+/* Tab Active */
+.tab.active {
+  background-color: var(--colTabActBG) !important;
+  opacity: 75%;
+}
+.tab.active .label {
+  font-weight: bold;
+  color: var(--colTabAct) !important;
+}
+:root.simulate-svg-context-fill .tab.active .closebox::after,
+:root.simulate-svg-context-fill .tab.active tab-twisty::before,
+:root.simulate-svg-context-fill .tab.active .favicon-builtin::before
+{
+  background: var(--colTabAct) !important;
+  opacity: 75%;
+}
+.tab.last-active {
+  background-color: var(--colTabLastActBG) !important;
+}
+
+/* Tab Hover */
+.tab:hover, .tab:not(.active):hover {
+  background-color: var(--colTabHovBG);
+  opacity: 0.75;
+}
+.tab:hover .label {
+  color: var(--colTabHov) !important;
+}
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
+
+.tab.unread .label {
+  color: var(--colTabUnread) !important;
+  font-style: italic !important;
+}
+
+.tab.discarded {
+  color: var(--colTabDisc);
+  font-style: italic;
+  background-color: var(--colTabDiscBG);
+  border-top: none;
+  border-bottom: 1px solid black;
+}
+
+/* Scrollbar rechts */
+:root.left #tabbar {
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+/* Coloring as tab container */
+.tab:not(.pinned) {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+.contextual-identity-marker {
+  height: unset !important;
+  width: 8px !important; /* width: unset !important; für komplette Farbe */
+  border-radius: 10px;
+  margin: 0 !important;
+  opacity: 0.75;
+
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+
+  position: absolute !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* group tabs */
+.tab.group-tab {
+  background-color: var(--colGroupTabBG);
+}
+.tab.group-tab .label {
+color: var(--colGroupTab);
+font-weight: bold;
+}
+.tab.group-tab .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colContstd), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+  width: unset !important;
+}
+/*
+.tab.group-tab .extra-items-container.behind {
+    width: 200px !important;
+    background-color: var(--colGroupTabBG);
+    z-index: 0;
+  }
+  .tab.group-tab .contextual-identity-marker {
+    background-color: darkslategrey;
+  }
+  .tab.group-tab[data-title$="1"] .extra-items-container.behind {
+    background-image: linear-gradient(to right, var(--colCont1), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+  }
+
+:is( <complex-selector-list> )where <complex-selector-list> = <complex-selector>#where <complex-selector> = <compound-selector> [ <combinator>? <compound-selector> ]*where <compound-selector> = [ <type-selector>? <subclass-selector>* [ <pseudo-element-selector> <pseudo-class-selector>* ]* ]!<combinator> = '>' | '+' | '~' | [ '||' ]where <type-selector> = <wq-name> | <ns-prefix>? '*'<subclass-selector> = <id-selector> | <class-selector> | <attribute-selector> | <pseudo-class-selector><pseudo-element-selector> = ':' <pseudo-class-selector><pseudo-class-selector> = ':' <ident-token> | ':' <function-token> <any-value> ')'where <wq-name> = <ns-prefix>? <ident-token><ns-prefix> = [ <ident-token> | '*' ]?  | <id-selector> = <hash-token><class-selector> = '.' <ident-token><attribute-selector> = '[' <wq-name> ']' | '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']'where <attr-matcher> = [ '~' |  |  | '^' | '$' | '*' ]? '='<attr-modifier> = i | s
+
+*/
+.group-tab[data-title$="1"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont1), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="2"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont2), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="3"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont3), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="4"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colContstd), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="5"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont5), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="6"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont6), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="7"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont7), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="8"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont8), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="9"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont9), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+.group-tab[data-title$="0"] .contextual-identity-marker {
+  background-image: linear-gradient(to right, var(--colCont0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0));
+}
+
+/* counting */
+#tabbar {
+  counter-reset: vtabs atabs tabs;
+  /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+}
+.tab:not(.collapsed):not(.discarded) {
+  counter-increment: vtabs atabs tabs;
+}
+.tab:not(.collapsed) {
+  counter-increment: vtabs tabs;
+}
+.tab:not(.discarded) {
+  counter-increment: atabs tabs;
+}
+.tab {
+  counter-increment: tabs;
+}
+/* counter in newtab */
+.newtab-button::after {
+  font-size: 11px;
+  content: var(--tab-count-text);
+  pointer-events: none;
+  position: absolute;
+  left: 2em;
+  top: 0.2em;
+}
+.newtab-button {
+  --tab-count-text: "a" counter(atabs) "/v" counter(vtabs) ": t" counter(tabs);
+  color: var(--colMenu);
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+
+/* Hide close buttons on tabs. */
+.tab .closebox {
+  visibility: collapse;
+}
+.tab:hover .closebox {
+  visibility: initial;
+}
+
+/* +++ eventualitäten +++ */
+
+/* Adjust style for tab that has sound playing. */
+/*
+.tab.sound-playing .favicon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: #FFFFFF;
+  animation: pulse 2s ease-out 0s infinite;
+  z-index: -1;
+  opacity: 0;
+}
+*/
+/* Adjust style for tab that is muted. */
+/*
+.tab.muted {
+  opacity: 0.5;
+}
+*/
+/*
+:root {
+  --tabbar-bg: url("https://i.imgur.com/PySJVs2.png") repeat center; !important;
+  --tab-surface: rgba(255, 173, 173, 0.3);
+  --tab-text: #000;
+}
+*/
+
+/*
+:root.sidebar tab-label {
+  z-index: 1000;
+}
+*/
+
+
+/*  */

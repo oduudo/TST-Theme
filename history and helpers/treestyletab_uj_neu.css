@@ -1,0 +1,325 @@
+/* ToDos
+zuklappzeichen anpassen statt gruppenordner
+closebox
+Einzug verringern
+*/
+/* Theme-colors */
+udostest {
+  --theme-colors-frame: hsl(240, 5%, 5%)​;
+  --theme-colors-icons: rgb(249, 249, 250, 0.7)​;
+  --theme-colors-ntp_background: #2A2A2E​;
+  --theme-colors-ntp_text: rgb(249, 249, 250)​;
+  --theme-colors-popup: #4a4a4f​;
+  --theme-colors-popup_border: #27272b​;
+  --theme-colors-popup_text: rgb(249, 249, 250)​;
+  --theme-colors-sidebar: #38383D​;
+  --theme-colors-sidebar_border: rgba(255, 255, 255, 0.1)​;
+  --theme-colors-sidebar_text: rgb(249, 249, 250)​;
+  --theme-colors-tab_background_text: rgb(249, 249, 250)​;
+  --theme-colors-tab_line: #0a84ff​;
+  --theme-colors-toolbar: hsl(240, 1%, 20%)​;
+  --theme-colors-toolbar_bottom_separator: hsl(240, 5%, 5%)​;
+  --theme-colors-toolbar_field: rgb(71, 71, 73)​;
+  --theme-colors-toolbar_field_border: rgba(249, 249, 250, 0.2)​;
+  --theme-colors-toolbar_field_separator: #5F6670​;
+  --theme-colors-toolbar_field_text: rgb(249, 249, 250)​;
+  /* Opacity --xx-x-x-30 per 10% */
+}
+
+/* Color definitions */
+:root {
+  /* Text  */
+  --colTabTextdark:   #111111;
+  --colTabTextlight:  var(--theme-colors-ntp_text);
+
+  /* Background und Newtab und Lesezeichen */
+  --colBG:            #281f1a; /* 281f1a tab border bottom */
+  --colBG2:           #ffff00;
+
+  --colMenuBG:        #a54d2a11;
+  --colMenu:          var(--colTabTextlight);
+
+
+  /* Tabs */
+  --colTabBG:         #514350; /* 514350 tab background */
+  --colTab:           #111111;
+
+  --colTabActBG:      #dbdfeb; /* ecff6b tab active background */
+  --colTabAct:        #0000ff;
+  --colTabActTwisty:  #008000; /* tab active tristy */
+  --colTabLastAct:    #997719;
+
+  --colTabHovBG:      #193b99; /* 6affda tab hover */
+  --colTabHov:        #ff0000;
+
+  --colTabDiscBG:     #887086;
+  --colTabDisc:       #ffffff; /* b4b4b4 tab discarded */
+
+  --colTabUnread:     #ff0000;
+
+  --colTabLabel:      #ffffff;
+
+  --colCount:         #5ceaff; /* 5ceaff tab counter */
+
+
+  /* Group Tabs */
+  --colGroupTabBG:    #a54d2a3f;
+  --colGroupTab:      var(--colTabTextlight);
+
+  --tab-size: 19px;
+  --font-size: 11px;
+  background-color: var(--colBG);
+
+  --tab-text: var(--colTabTextlight);
+}
+
+/* Sonderzeichen */
+/*
+:root.simulate-svg-context-fill .closebox::after {
+  background: var(--colTabTextlight);
+}
+*/
+:root.simulate-svg-context-fill .tab.active .closebox::after {
+  background: var(--colTabTextdark);
+}
+/*
+:root.simulate-svg-context-fill .tab:hover .closebox::after {
+  background: var(--colTabTextlight);
+}
+
+:root.simulate-svg-context-fill .tab.active .sound-button::after {
+  background: var(--colTabTextlight);
+}
+
+:root.simulate-svg-context-fill .tab:hover .sound-button::after {
+  background: var(--colTabTextlight);
+}
+
+:root.simulate-svg-context-fill tab-item:not(.collapsed).tst-lock-tree-collapsed-locked-collapsed tab-twisty::before {
+  background: var(--colTabTextlight);
+}
+
+:root.simulate-svg-context-fill tab-item.group-tab .favicon-builtin::before {
+  background: var(--colTabTextlight);
+}
+:root.simulate-svg-context-fill tab-item .favicon-builtin::before {
+  background: var(--colTabTextlight);
+}
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before, #subpanel-toggler::before {
+  color: var(--colTabTextlight);
+}
+*/
+
+/* Background, Container und Menues */
+/* , #tabbar, #subpanel-container, #background */
+#tabbar-container {
+  background-color: var(--colBG) !important;
+}
+/* , #subpanel-toggler::before */
+.newtab-action-selector-anchor::before, .contextual-identities-selector-anchor::before {
+  color: var(--colMenu) !important;
+}
+.newtab-button::before {
+  background-color: var(--colMenu) !important;
+}
+#subpanel-container {
+  background-color: var(--colMenuBG);
+}
+/* newtab at top 1 */
+.newtab-button-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: var(--colMenuBG) !important;
+}
+#tabbar {
+  top: 22px !important;
+}
+.tab.pinned {
+  margin-top: 22px;
+}
+
+/* Tab definition */
+.tab {
+  background-color: var(--colTabBG);
+  color: var(--colTab);
+  height: var(--tab-size);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--colBG);
+  border-radius: 20px;
+}
+
+.label {
+  font-size: var(--font-size);
+  margin-left: 5px;
+}
+
+.tab .label {
+  color: var(--colTabLabel);
+}
+
+.tab .counter {
+  color: var(--colCount);
+}
+
+.tab.active {
+  background-color: var(--colTabActBG); /* #193B99 */
+}
+.tab.active .label {
+  font-weight: bold;
+  color: var(--colTabAct);
+}
+.tab.last-active {
+  background-color: var(--colTabLastAct) !important;
+}
+
+.tab:hover, .tab:not(.active):hover {
+  background-color: var(--colTabHovBG);
+  opacity: 0.25;
+}
+.tab:hover .label {
+  color: var(--colTabHov);
+}
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
+
+.tab.unread .label {
+  color: var(--colTabUnread) !important;
+  font-style: italic !important;
+}
+
+.tab.discarded {
+  color: var(--colTabDisc);
+  background-color: var(--colTabDiscBG);
+  border-top: none;
+  border-bottom: 1px solid black;
+}
+
+/* Scrollbar rechts */
+:root.left #tabbar {
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+/* Coloring as tab container */
+.tab {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+.contextual-identity-marker {
+  height: unset !important;
+  width: 8px !important; /* width: unset !important; für komplette Farbe */
+  border-radius: 10px;
+  margin: 0 !important;
+  opacity: 0.75;
+
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+
+  position: absolute !important;
+  pointer-events: none;Full Auto-show/hide Theme
+}
+
+
+/* group tabs */
+.tab.group-tab {
+  background-color: var(--colGroupTabBG);
+}
+.tab.group-tab .label {
+color: var(--colGroupTab);
+font-weight: bold;
+}
+
+
+/* counting */
+#tabbar {
+  counter-reset: vtabs atabs tabs;
+  /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+}
+.tab:not(.collapsed):not(.discarded) {
+  counter-increment: vtabs atabs tabs;
+}
+.tab:not(.collapsed) {
+  counter-increment: vtabs tabs;
+}
+.tab:not(.discarded) {
+  counter-increment: atabs tabs;
+}
+.tab {
+  counter-increment: tabs;
+}
+/* counter in newtab */
+.newtab-button::after {
+  font-size: 11px;
+  content: var(--tab-count-text);
+  pointer-events: none;
+  position: absolute;
+  left: 2em;
+  top: 0.2em;
+}
+.newtab-button {
+  --tab-count-text: "a" counter(atabs) "/v" counter(vtabs) ": " counter(tabs) " tabs";
+  color: var(--colMenu);
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+
+/* Hide close buttons on tabs. */
+.tab .closebox {
+  visibility: collapse;
+}
+.tab:hover .closebox {
+  visibility: initial;
+}
+
+/* +++ eventualitäten +++ */
+
+
+
+
+/* Adjust style for tab that has sound playing. */
+/*
+.tab.sound-playing .favicon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: #FFFFFF;
+  animation: pulse 2s ease-out 0s infinite;
+  z-index: -1;
+  opacity: 0;
+}
+*/
+/* Adjust style for tab that is muted. */
+/*
+.tab.muted {
+  opacity: 0.5;
+}
+*/
+/*
+:root {
+  --tabbar-bg: url("https://i.imgur.com/PySJVs2.png") repeat center; !important;
+  --tab-surface: rgba(255, 173, 173, 0.3);
+  --tab-text: #000;
+}
+*/
+
+/*
+:root.sidebar tab-label {
+  z-index: 1000;
+}
+*/
+
+
+/*  */

@@ -1,0 +1,176 @@
+/* Theme-colors */
+.root {
+  --theme-colors-frame: hsl(240, 5%, 5%)​;
+  --theme-colors-icons: rgb(249, 249, 250, 0.7)​;
+  --theme-colors-ntp_background: #2A2A2E​;
+  --theme-colors-ntp_text: #f9f9fa​;
+  --theme-colors-popup: #4a4a4f​;
+  --theme-colors-popup_border: #27272b​;
+  --theme-colors-popup_text: rgb(249, 249, 250)​;
+  --theme-colors-sidebar: #38383D​;
+  --theme-colors-sidebar_border: rgba(255, 255, 255, 0.1)​;
+  --theme-colors-sidebar_text: rgb(249, 249, 250)​;
+  --theme-colors-tab_background_text: rgb(249, 249, 250)​;
+  --theme-colors-tab_line: #0a84ff​;
+  --theme-colors-toolbar: hsl(240, 1%, 20%)​;
+  --theme-colors-toolbar_bottom_separator: hsl(240, 5%, 5%)​;
+  --theme-colors-toolbar_field: rgb(71, 71, 73)​;
+  --theme-colors-toolbar_field_border: rgba(249, 249, 250, 0.2)​;
+  --theme-colors-toolbar_field_separator: #5F6670​;
+  --theme-colors-toolbar_field_text: rgb(249, 249, 250)​;
+  Opacity --xx-x-x-30 per 10%
+}
+
+:root {
+  /* The "Default Browser" icon at https://design.firefox.com/icons/viewer/ */
+  --icon-heart: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="context-fill" d="M8 6s0-4 3.5-4S15 5 15 6c0 4.5-7 9-7 9z"></path><path fill="context-fill" d="M8 6s0-4-3.5-4S1 5 1 6c0 4.5 7 9 7 9l1-6z"></path></svg>');
+}
+:root:not(.simulate-svg-context-fill) tab-item.group-tab .favicon-builtin::before {
+  background-image: var(--icon-heart) !important;
+}
+:root.simulate-svg-context-fill tab-item.group-tab .favicon-builtin::before {
+  mask-image: var(--icon-heart) !important;
+}
+/* header icon in the group tab's content area */
+:root.group-tab h1::before {
+  mask-image: var(--icon-heart) !important;
+}
+
+tab-closebox::after {
+  /*
+    There are some possible characters for this purpose:
+    https://en.wikipedia.org/wiki/X_mark
+    - X: upper case X
+      * Too narrow
+    - ×: U+00D7 MULTIPLICATION SIGN (z notation Cartesian product)
+      * Too small on macOSX
+    - ╳: U+2573 BOX DRAWINGS LIGHT DIAGONAL CROSS
+      * Too large on Ubuntu
+    - ☓ : U+2613 SALTIRE (St Andrew's Cross)
+      * Narrow a little on Windows and macOS
+    - ✕: U+2715 MULTIPLICATION X
+      * Too small on macOSX
+    - ✖: U+2716 HEAVY MULTIPLICATION X
+      * Too small on macOSX
+    - ❌ : U+274C CROSS MARK
+      * Colored on macOS
+    - ❎ : U+274E NEGATIVE SQUARED CROSS MARK
+      * Colored on macOS
+      * Box around the mark is unnecessary
+    - ⨉ : U+2A09 N-ARY TIMES OPERATOR
+    - ⨯: U+2A2F VECTOR OR CROSS PRODUCT
+      * Too small on macOSX
+    - 🗙: U+1F5D9 CANCELLATION X
+      * Unavailable on macOSX
+    - 🗴 : U+1F5F4 BALLOT SCRIPT X
+      * Unavailable on macOSX
+    - 🞩: U+1F7A9 LIGHT SALTIRE
+      * Unavailable on macOSX
+    So ⨉ (U+2A09) looks good for me on Windows, macOS, and Linux (tested on Ubuntu).
+  */
+  content: "✖";
+
+  background: none;
+  line-height: 1;
+  mask: none;
+  text-align: center;
+  width: 1.25em;
+}
+
+/* hide scrollbar until hovering over tabs */
+
+#tabbar.overflow { scrollbar-width: none; }
+#tabbar.overflow:hover { scrollbar-width: auto; }
+
+/* #tabbar { scrollbar-width: thin; } */ /* auto */
+
+/* counter in tabs ??? */
+/*
+.tab .active-marker::before {
+  background: Highlight;
+  color: HighlightText;
+  content: counter(vtabs);
+  font-size: x-small;
+  right: 0.2em;
+  padding: 0.2em;
+  pointer-events none;
+  position: absolute;
+  bottom: 0.2em;
+}
+*/
+
+#sidebar {
+    background: linear-gradient(45deg, #b687ae 0%,#29518c 100%) !important;
+}
+
+/* TAB Unloader ?? */
+
+/* Dim unloaded tabs */
+.tab.discarded {
+  opacity: 0.75;
+}
+
+
+/* Show hidden tabs */
+.tab.hidden {
+  pointer-events: auto !important;
+  position: relative !important;
+  visibility: visible !important;
+}
+
+/* Container */
+.tab.contextual-identity-firefox-container-2 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-orange);
+}
+.tab.contextual-identity-firefox-container-3 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-green);
+}
+.tab.contextual-identity-firefox-container-4 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-orange);
+}
+.tab.contextual-identity-firefox-container-6 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-toolbar);
+}
+.tab.contextual-identity-firefox-container-7 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-pink);
+}
+.tab.contextual-identity-firefox-container-9 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-yellow);
+}
+.tab.contextual-identity-firefox-container-10 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-blue);
+}
+.tab.contextual-identity-firefox-container-12 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-blue);
+}
+.tab.contextual-identity-firefox-container-13 .contextual-identity-marker {
+  background-color: var(--contextual-identity-color-red);
+}
+:root { --contextual-identity-color-orange: #ff9f00;
+--contextual-identity-color-green: #51cd00;
+--contextual-identity-color-orange: #ff9f00;
+--contextual-identity-color-toolbar: #7c7c7d;
+--contextual-identity-color-pink: #ff4bda;
+--contextual-identity-color-yellow: #ffcb00;
+--contextual-identity-color-blue: #37adff;
+--contextual-identity-color-blue: #37adff;
+--contextual-identity-color-red: #ff613d; }
+
+/* lock tree */
+
+tab-item:not(.collapsed).tst-lock-tree-collapsed-locked-collapsed tab-twisty::before {
+  background: url("moz-extension://c8c3834d-3111-4bd5-802e-f5d0ef9dbf3e/resources/ArrowheadDownDouble.svg") no-repeat center / 60%;
+}
+:root.simulate-svg-context-fill tab-item:not(.collapsed).tst-lock-tree-collapsed-locked-collapsed tab-twisty::before {
+  background: var(--tab-text);
+  mask: url("moz-extension://c8c3834d-3111-4bd5-802e-f5d0ef9dbf3e/resources/ArrowheadDownDouble.svg") no-repeat center / 60%;
+}
+
+/* newtab at top 2 */
+#all-tabs { order: 1000; }
+
+/* ??? */
+:root.sidebar {
+  background-color: var(--colBG) !important; /* 281f1a */
+}
+

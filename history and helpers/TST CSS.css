@@ -1,0 +1,103 @@
+1) Very importantly, hide the horizontal tab bar. You get some vertical screen space back, and you aren't distracted by two ways of showing the same tabs. You'll have to edit your userChrome.css (see e.g. http://kb.mozillazine.org/index.php?title=UserChrome.css&pri... for details on how to find it), and add something like this:
+
+  /* Hide tab bar in FF Quantum */
+  @-moz-document url("chrome://browser/content/browser.xul") {
+    #TabsToolbar {
+      visibility: collapse !important;
+      margin-bottom: 21px !important;
+    }
+
+    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+      visibility: collapse !important;
+    }
+  }
+
+
+2) I customize the tabs themselves to make them more compact, thus letting me see more tabs. This CSS can be placed in the TST addon preferences under the "Advanced" section.
+
+  /* Compact tab layout */
+  :root { --tab-height: 20px !important; }
+  .tab { height: 20px !important; }
+  /* Shrink space between pinned tabs and tab bar, only when pins are present */
+  #tabbar[style*="margin"] { margin-top: 20px !important; }
+
+  /* Show title of unread tabs with red font */
+  .tab.unread .label {
+    color: red !important;
+  }
+
+  /* Add private browsing indicator per tab */
+  .tab.private-browsing .label:before {
+    content: " ";
+  }
+
+
+	
+	
+clubm8 on Jan 6, 2019 [–]
+
+How well does this play with Multi-Account Containers?
+
+	
+	
+tiagod on Jan 6, 2019 [–]
+
+Very well! Even shows a little coloured strip on each tab, and respects regular tab hierarchy.
+
+	
+	
+zimmund on Jan 6, 2019 [–]
+
+I found the indicators too narrow, so I made this CSS change (in TST config):
+
+  /* Better highlighting of tab container */
+  .tab {
+    padding-right: 12px !important;
+  }
+  .contextual-identity-marker {
+    width: 6px !important;
+    border-radius: 2px;
+    margin: 2px;
+    opacity: 0.75;
+  }
+
+Hope it's helpful for someone else :)
+
+
+/*
+Windows
+    Location: C:\Users\<YourUsername>\AppData\Roaming\Mozilla\Firefox\Profiles\<YourFirefoxProfile>\chrome
+    Notes:
+        If minimize, maximize, and close buttons are no longer visible, enable the Title Bar or Menu Bar in Firefox Customize.
+macOS
+    Location: /Users/<YourUsername>/Library/Application Support/Firefox/Profiles/<YourFirefoxProfile>/chrome
+    Notes:
+        If minimize, maximize, and close buttons overlap other controls, add the Flexible Space in Firefox Customize.
+*/
+
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* Hide horizontal tab toolbar */
+#TabsToolbar {
+    visibility:collapse!important;
+}
+
+/* Hide "Tree Style Tabs" sidebar header */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display:none;
+}
+
+alt
+
+/* Hide tab bar in FF Quantum */
+@-moz-document url("chrome://browser/content/browser.xul") {
+  #TabsToolbar {
+    visibility: collapse !important;
+    margin-bottom: 21px !important;
+  }
+
+  #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse !important;
+  }
+}
+

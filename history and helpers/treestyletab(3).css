@@ -1,0 +1,166 @@
+/* Tab Height */
+tab-item {
+  --tab-size: 22px !important;
+  height: var(--tab-size);
+}
+
+/* Color Tabs as Container */
+:root.sidebar .contextual-identity-marker {
+  margin: 0 !important;
+  position: absolute !important;
+  pointer-events: none;Full Auto-show/hide Theme
+  z-index: 0;
+
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+
+  width: unset !important;
+  height: unset !important;
+
+  opacity: 0.5;
+}
+:root.sidebar tab-label {
+  z-index: 1000;
+}
+
+:root.left #tabbar {
+  direction: ltr;
+  overflow-x: hidden;
+}
+/* hide scrollbar until hovering over tabs */
+/*
+#tabbar.overflow { scrollbar-width: none; }
+#tabbar.overflow:hover { scrollbar-width: auto; }
+*/
+/* #tabbar { scrollbar-width: thin; } */
+
+/* --Change attributes of group tabs */
+.tab.group-tab {
+background-color: #B5C1E3;
+height: 23px;
+}
+.tab.group-tab .label {
+color: black;
+font-weight: bold;
+}
+
+
+/* Show title of unread tabs with red and italic font */
+
+.tab.unread .label {
+  color: blue !important;
+  font-style: italic !important;
+}
+
+
+/* Add private browsing indicator per tab */
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
+
+/* higlight actice */
+
+.tab.active {
+/*  height: 30px !important; */
+  background-color: #193B99;
+}
+.tab.active .label {
+  font-weight: bold;
+/*  font-size: 14px; */
+}
+.tab.active .twisty,
+.tab.active .label,
+.tab.active .counter {
+  color: blue;
+}
+
+/* highlight hover */
+
+.tab:hover {
+  background: #193B99 !important;
+  opacity: 1;
+}
+
+/* counting */
+
+#tabbar {
+  counter-reset: vtabs atabs tabs;
+  /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+}
+.tab:not(.collapsed):not(.discarded) {
+  counter-increment: vtabs atabs tabs;
+}
+.tab:not(.collapsed) {
+  counter-increment: vtabs tabs;
+}
+.tab:not(.discarded) {
+  counter-increment: atabs tabs;
+}
+.tab {
+  counter-increment: tabs;
+}
+
+/* counter in tabs */
+/*
+.tab .active-marker::before {
+  background: Highlight;
+  color: HighlightText;
+  content: counter(vtabs);
+  font-size: x-small;
+  right: 0.2em;
+  padding: 0.2em;
+  pointer-events none;
+  position: absolute;
+  bottom: 0.2em;
+}
+*/
+
+/* counter in newtab */
+
+.newtab-button::after {
+  content: var(--tab-count-text);
+  pointer-events: none;
+
+  position: absolute;
+  left: 0.5em;
+
+  /* TST 2.4.0 - Fix for Issue #1664 */
+  background: transparent !important;
+  mask: none !important;
+}
+.newtab-button {
+  --tab-count-text: counter(atabs) "/" counter(tabs) " tabs";
+}
+
+/* newtab at top 1 */
+
+/*
+.newtab-button-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+#tabbar {
+  top: 20px !important;
+}
+.tab.pinned {
+  margin-top: 20px;
+}
+*/
+
+/* newtab at top 2 */
+
+#all-tabs { order: 1000; }
+
+/* last active tab */
+
+.tab.last-active {
+background-color: #997719 !important;
+}
+
+/*   */

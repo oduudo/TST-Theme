@@ -1,0 +1,107 @@
+alternativ: compact
+.tab {
+  height: 19px;
+}
+
+.label {
+  font-size: 11px;
+}
+
+
+
+
+:root {
+  --colorA: #ecff6b;
+  --colorB: #6affda;
+  --colorC: #b4b4b4;
+  --colorD: #5ceaff;
+  --colorE: #514350;
+  --colorF: #281f1a;
+  --colorG: green;
+  --tab-height: 19px;
+  --font-size: 11px;
+  background-color: var(--colorF);
+}
+
+:root.simulate-svg-context-fill .closebox::after {
+  background: white;
+}
+
+:root.simulate-svg-context-fill .tab.active .closebox::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .closebox::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab.active .sound-button::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .sound-button::after {
+  background: black;
+}
+
+.tab {
+  background-color: var(--colorE);
+  height: var(--tab-height);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--colorF);
+}
+
+.label {
+  font-size: var(--font-size);
+}
+
+.tab .label {
+  color: white;
+}
+
+.tab.active .label {
+  color: black;
+}
+
+.tab .counter {
+  color: var(--colorD);
+}
+
+.tab.active .twisty
+{
+  color: var(--colorG);
+}
+
+.tab.active {
+  color: black;
+  background-color: var(--colorA);
+}
+
+.tab.active:hover {
+  background-color: var(--colorA);
+}
+
+.tab:hover .label {
+  color: black;
+}
+
+.tab:hover, .tab:not(.active):hover {
+  color: black;
+  background-color: var(--colorB);
+}
+
+.tab.unread .label {
+  font-style: italic;
+}
+
+.tab.discarded {
+  color: var(--colorC);
+  background-color: black;
+  border-top: none;
+  border-bottom: 1px solid black;
+}
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
